@@ -18,13 +18,13 @@ Simple Integration: Easy to install and integrate into any React/React Native pr
 ## Installation
 
 ```bash
-npm install @bluebird-helpers
+npm install bluebird-helpers
 ```
 
 or
 
 ```bash
-yarn add @bluebird-helpers
+yarn add bluebird-helpers
 ```
 
 ## Available Hooks
@@ -92,6 +92,7 @@ export const formatDate = dateString => {
     dayjs(dateString).format(`dddd, D[${getDateSuffix(date)}] MMMM`)
   );
 };
+```
 
 
 ### `useStringUtils` Hook
@@ -148,6 +149,7 @@ Checks if the string contains any special characters (e.g., !@#$%^&*).
 const { hasSpecialCharacter } = useStringUtils();
 console.log(hasSpecialCharacter('Hello@World')); // true
 console.log(hasSpecialCharacter('HelloWorld')); // false
+```
 
 
 ## Contributing
