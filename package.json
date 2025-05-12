@@ -1,0 +1,32 @@
+{
+  "name": "@bluebird-helpers",
+  "version": "1.0.0",
+  "description": "A collection of reusable React and React Native hooks",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bluebird2000/bluebird-helpers.git"
+  },
+  "keywords": [
+    "react",
+    "react-native",
+    "hooks",
+    "utilities",
+    "string",
+    "date"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^17.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^4.0.0",
+    "@types/react": "^17.0.0"
+  }
+}
