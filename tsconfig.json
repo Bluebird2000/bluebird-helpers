@@ -1,15 +1,14 @@
 {
   "compilerOptions": {
-    "outDir": "dist",
-    "declaration": true,
-    "module": "ESNext",  // Change this from "CommonJS" to "ESNext"
     "target": "ES6",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "jsx": "react",
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "jsx": "react-jsx",
-    "moduleResolution": "node",
-    "strict": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "declaration": true,
+      "outDir": "./dist",
+    "strict": true
   },
   "include": ["src"]
 }
