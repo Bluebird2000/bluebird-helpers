@@ -1,4 +1,7 @@
-import { useCallback } from 'react';
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.useStringUtils = void 0;
+const react_1 = require("react");
 /**
  * Hook for string manipulation utilities.
  * Provides various string-related functionalities like checking for empty strings, trimming, etc.
@@ -10,15 +13,15 @@ import { useCallback } from 'react';
  * console.log(trimString('  test  ')); // Output: 'test'
  * console.log(hasSpecialCharacter('Hello@World')); // Output: true
  */
-export const useStringUtils = () => {
-    const isEmpty = useCallback((str) => str.trim().length === 0, []);
-    const trimString = useCallback((str) => str.trim(), []);
-    const toUpperCase = useCallback((str) => str.toUpperCase(), []);
-    const toLowerCase = useCallback((str) => str.toLowerCase(), []);
-    const capitalizeFirstLetter = useCallback((str) => {
+const useStringUtils = () => {
+    const isEmpty = (0, react_1.useCallback)((str) => str.trim().length === 0, []);
+    const trimString = (0, react_1.useCallback)((str) => str.trim(), []);
+    const toUpperCase = (0, react_1.useCallback)((str) => str.toUpperCase(), []);
+    const toLowerCase = (0, react_1.useCallback)((str) => str.toLowerCase(), []);
+    const capitalizeFirstLetter = (0, react_1.useCallback)((str) => {
         return str.charAt(0).toUpperCase() + str.slice(1);
     }, []);
-    const hasSpecialCharacter = useCallback((text) => {
+    const hasSpecialCharacter = (0, react_1.useCallback)((text) => {
         const matchSpecialCharacters = /[`!@#$%^&*()_\-=[\]{};':"\\|,.<>/?~ +]/;
         return matchSpecialCharacters.test(text);
     }, []);
@@ -31,3 +34,4 @@ export const useStringUtils = () => {
         hasSpecialCharacter
     };
 };
+exports.useStringUtils = useStringUtils;

@@ -1,5 +1,11 @@
-import { useCallback } from 'react';
-import dayjs from 'dayjs';
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.useDateUtils = void 0;
+const react_1 = require("react");
+const dayjs_1 = __importDefault(require("dayjs"));
 /**
  * Hook for date formatting utilities.
  * Provides various date-related functionalities like formatting, suffix handling, and relative day calculation.
@@ -10,8 +16,8 @@ import dayjs from 'dayjs';
  * console.log(getDateInDDMMYYYY(1633017600000)); // Output: '01/10/2021'
  * console.log(getDateInSentence(1633017600000)); // Output: '1st October 2021'
  */
-export const useDateUtils = () => {
-    const getDateSuffix = useCallback((date) => {
+const useDateUtils = () => {
+    const getDateSuffix = (0, react_1.useCallback)((date) => {
         const lastDigit = date.toString().slice(-1);
         switch (lastDigit) {
             case "1":
@@ -24,7 +30,7 @@ export const useDateUtils = () => {
                 return "th";
         }
     }, []);
-    const getRelativeDay = useCallback((timeStamp) => {
+    const getRelativeDay = (0, react_1.useCallback)((timeStamp) => {
         const date = new Date(timeStamp);
         const today = new Date();
         if (date.toDateString() === today.toDateString())
@@ -35,7 +41,7 @@ export const useDateUtils = () => {
             return "Yesterday";
         return "";
     }, []);
-    const getFullMonth = useCallback((index) => {
+    const getFullMonth = (0, react_1.useCallback)((index) => {
         const MONTHS = [
             "January",
             "February",
@@ -53,7 +59,7 @@ export const useDateUtils = () => {
         return MONTHS[index];
     }, []);
     // Utility function for getting relative time
-    const getRelativeTime = useCallback((timeStamp) => {
+    const getRelativeTime = (0, react_1.useCallback)((timeStamp) => {
         const now = new Date();
         const then = new Date(timeStamp);
         const differenceInSeconds = (now.getTime() - then.getTime()) / 1000; // difference in seconds
@@ -81,20 +87,21 @@ export const useDateUtils = () => {
         }
     }, []);
     return {
-        getDateInDDMMYYYY: useCallback((ts) => dayjs(ts).format("DD/MM/YYYY"), []),
-        getDateInDDMonthYYYY: useCallback((ts) => dayjs(ts).format("DD/MMM/YYYY"), []),
-        getDateInReverseKebabCase: useCallback((ts) => dayjs(ts).format("YYYY-MM-DD"), []),
-        getDateInSentence: useCallback((ts) => {
+        getDateInDDMMYYYY: (0, react_1.useCallback)((ts) => (0, dayjs_1.default)(ts).format("DD/MM/YYYY"), []),
+        getDateInDDMonthYYYY: (0, react_1.useCallback)((ts) => (0, dayjs_1.default)(ts).format("DD/MMM/YYYY"), []),
+        getDateInReverseKebabCase: (0, react_1.useCallback)((ts) => (0, dayjs_1.default)(ts).format("YYYY-MM-DD"), []),
+        getDateInSentence: (0, react_1.useCallback)((ts) => {
             const date = new Date(ts);
             const day = date.getDate();
             const month = getFullMonth(date.getMonth());
             return `${day}${getDateSuffix(day)} ${month} ${date.getFullYear()}`;
         }, [getFullMonth, getDateSuffix]),
         getRelativeDay,
-        formatDate: useCallback((dateStr) => {
+        formatDate: (0, react_1.useCallback)((dateStr) => {
             return (getRelativeDay(new Date(dateStr).getTime()) ||
-                dayjs(dateStr).format(`dddd, D[${getDateSuffix(new Date(dateStr).getDate())}] MMMM`));
+                (0, dayjs_1.default)(dateStr).format(`dddd, D[${getDateSuffix(new Date(dateStr).getDate())}] MMMM`));
         }, [getRelativeDay, getDateSuffix]),
         getRelativeTime,
     };
 };
+exports.useDateUtils = useDateUtils;
