@@ -1,10 +1,11 @@
 {
   "name": "bluebird-helpers",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "A collection of reusable React and React Native hooks",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "source": "index.ts",
+  "source": "src/index.ts",
+  "files": ["dist"],
   "scripts": {
     "build": "tsc",
     "prepublishOnly": "npm run build"
