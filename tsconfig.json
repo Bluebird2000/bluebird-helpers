@@ -2,7 +2,7 @@
   "compilerOptions": {
     "outDir": "dist",
     "declaration": true,
-    "module": "CommonJS",
+    "module": "ESNext",  // Change this from "CommonJS" to "ESNext"
     "target": "ES6",
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,

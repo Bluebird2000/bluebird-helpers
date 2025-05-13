@@ -1,10 +1,10 @@
 /**
- * Hook for string manipulation utilities.
+ * Utility module for string manipulation.
  * Provides various string-related functionalities like checking for empty strings, trimming, etc.
  *
  * @returns {object} - Contains string manipulation functions.
  * @example
- * const { isEmpty, trimString, hasSpecialCharacter } = useStringUtils();
+ * const { isEmpty, trimString, hasSpecialCharacter } = stringUtils();
  * console.log(isEmpty('test')); // Output: false
  * console.log(trimString('  test  ')); // Output: 'test'
  * console.log(hasSpecialCharacter('Hello@World')); // Output: true
