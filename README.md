@@ -48,6 +48,7 @@ Usage:
  * @param {number} dateTimeStamp
  * @returns {DateString} Date in dd/mm/yyyy
  */
+import { useDateUtils } from "bluebird-helpers";
 const { getDateInDDMMYYYY } = useDateUtils();
 const formattedDate = getDateInDDMMYYYY(1633017600000);
 console.log(formattedDate); // Output: '01/10/2021'
@@ -107,6 +108,7 @@ A custom React hook that provides various utility functions to manipulate string
 
 #### Example
 ```javascript
+import { useStringUtils } from "bluebird-helpers";
 const { isEmpty } = useStringUtils();
 const result = isEmpty('   ');
 console.log(result); // Output: true```

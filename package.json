@@ -1,9 +1,10 @@
 {
   "name": "bluebird-helpers",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A collection of reusable React and React Native hooks",
-  "main": "index.js",
-  "types": "index.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "source": "index.ts",
   "scripts": {
     "build": "tsc",
     "prepublishOnly": "npm run build"
@@ -20,13 +21,36 @@
     "string",
     "date"
   ],
-  "author": "Your Name",
+  "author": "Bluebird - https://github.com/Bluebird2000",
   "license": "MIT",
   "dependencies": {
-    "react": "^17.0.0"
+    "dayjs": "^1.11.13",
+    "react": "*"
   },
   "devDependencies": {
-    "typescript": "^4.0.0",
-    "@types/react": "^17.0.0"
+    "@types/react": "^19.1.4",
+    "typescript": "^4.0.0"
+  },
+  "peerDependencies": {
+    "@types/react": "*",
+    "@types/react-native": "*",
+    "react": "*"
+  },
+  "peerDependenciesMeta": {
+    "@types/react-native": {
+      "optional": true
+    },
+    "@types/react": {
+      "optional": true
+    }
+  },
+  "react-native-builder-bob": {
+    "source": "src",
+    "output": "lib",
+    "targets": [
+      "commonjs",
+      "module",
+      "typescript"
+    ]
   }
 }
