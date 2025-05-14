@@ -1,6 +1,6 @@
 {
   "name": "bluebird-helpers",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "description": "A collection of reusable React and React Native hooks",
   "main": "dist/index.js",
   "type": "module",

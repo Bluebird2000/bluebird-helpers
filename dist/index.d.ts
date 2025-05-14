@@ -16,6 +16,17 @@ declare const useStringUtils: () => {
     toLowerCase: (str: string) => string;
     capitalizeFirstLetter: (str: string) => string;
     hasSpecialCharacter: (text: string) => boolean;
+    maskSensitiveInfo: (str: string, visibleCount?: number) => string;
+    getInitials: (name: string) => string;
+    isValidEmail: (email: string) => boolean;
+    normalizePhoneNumber: (phone: string) => string;
+    isValidPhoneNumber: (phone: string, region?: string) => boolean;
+    sanitizeInput: (input: string) => string;
+    validatePasswordStrength: (password: string) => boolean;
+    isValidCardNumber: (cardNumber: string) => boolean;
+    slugify: (text: string) => string;
+    generateReferenceID: (prefix?: string) => string;
+    calculateAgeFromDOB: (dob: string) => number;
 };
 
 /**

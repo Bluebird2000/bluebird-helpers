@@ -151,8 +151,53 @@ Checks if the string contains any special characters (e.g., !@#$%^&*).
 const { hasSpecialCharacter } = useStringUtils();
 console.log(hasSpecialCharacter('Hello@World')); // true
 console.log(hasSpecialCharacter('HelloWorld')); // false
-```
 
+### `maskSensitiveInfo`
+Checks
+
+const { maskSensitiveInfo } = useStringUtils();
+console.log(maskSensitiveInfo("1234567890")); // ******7890
+
+### `isValidEmail`
+Checks if the email is valid.
+
+const { isValidEmail } = useStringUtils();
+console.log(isValidEmail("test@example.com")); // true
+
+### Check to sanitize input (remove dangerous characters)
+const { sanitizeInput } = useStringUtils();
+
+console.log(sanitizeInput('<script>alert("x")</script>')); // scriptalert("x")script
+
+### `isValidCardNumber`
+Checks if the cardNumber is valid.
+
+const { isValidCardNumber } = useStringUtils();
+console.log(isValidCardNumber('4111 1111 1111 1111')); // true
+
+### `validvalidatePasswordStrength`
+const { validvalidatePasswordStrength } = useStringUtils();
+
+console.log(validvalidatePasswordStrength('MyStr0ngP@ss!')); // true
+
+### `slugify`
+Replace spaces and non-word characters with hyphens
+
+const { slugify } = useStringUtils();
+console.log(slugify("Hello World! This is a test.")); // Output: "hello-world-this-is-a-test"
+
+### `generateReferenceID`
+Generate reference id 
+
+const { generateReferenceID } = useStringUtils();
+console.log(generateReferenceID("TXN")); // "TXN-k7j6f-8xk3"
+
+### `calculateAgeFromDOB`
+calculate age from Date of birth
+const { calculateAgeFromDOB } = useStringUtils();
+console.log(calculateAgeFromDOB("1997-04-20")); // e.g., 28
+
+```
 
 ## Contributing
 Feel free to open issues or PRs for new utility suggestions or improvements.

@@ -9,13 +9,74 @@ var useStringUtils = () => {
     const matchSpecialCharacters = /[`!@#$%^&*()_\-=[\]{};':"\\|,.<>/?~ +]/;
     return matchSpecialCharacters.test(text);
   };
+  const maskSensitiveInfo = (str, visibleCount = 4) => {
+    return str.length <= visibleCount ? "*".repeat(str.length) : "*".repeat(str.length - visibleCount) + str.slice(-visibleCount);
+  };
+  const getInitials = (name) => {
+    return name.split(" ").map((part) => part.charAt(0).toUpperCase()).join("");
+  };
+  const isValidEmail = (email) => {
+    const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return pattern.test(email);
+  };
+  const normalizePhoneNumber = (phone) => {
+    return phone.replace(/\D/g, "").replace(/^0/, "+234");
+  };
+  const isValidPhoneNumber = (phone, region = "US") => {
+    const regex = /^\+?[1-9]\d{1,14}$/;
+    return regex.test(phone);
+  };
+  const validatePasswordStrength = (password) => {
+    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\w\s]).{8,}$/;
+    return regex.test(password);
+  };
+  const sanitizeInput = (input) => {
+    return input.replace(/[<>{}[\]/]/g, "");
+  };
+  const isValidCardNumber = (cardNumber) => {
+    const clean = cardNumber.replace(/\D/g, "");
+    let sum = 0;
+    let shouldDouble = false;
+    for (let i = clean.length - 1; i >= 0; i--) {
+      let digit = parseInt(clean[i], 10);
+      if (shouldDouble) {
+        digit *= 2;
+        if (digit > 9) digit -= 9;
+      }
+      sum += digit;
+      shouldDouble = !shouldDouble;
+    }
+    return sum % 10 === 0;
+  };
+  const slugify = (text) => {
+    return text.toLowerCase().trim().replace(/[^\w\s-]/g, "").replace(/[\s_-]+/g, "-").replace(/^-+|-+$/g, "");
+  };
+  const generateReferenceID = (prefix = "REF") => {
+    return `${prefix}-${Date.now().toString(36)}-${Math.random().toString(36).substring(2, 6)}`;
+  };
+  const calculateAgeFromDOB = (dob) => {
+    const birthDate = new Date(dob);
+    const ageDiff = Date.now() - birthDate.getTime();
+    return Math.floor(ageDiff / (1e3 * 60 * 60 * 24 * 365.25));
+  };
   return {
     isEmpty,
     trimString,
     toUpperCase,
     toLowerCase,
     capitalizeFirstLetter,
-    hasSpecialCharacter
+    hasSpecialCharacter,
+    maskSensitiveInfo,
+    getInitials,
+    isValidEmail,
+    normalizePhoneNumber,
+    isValidPhoneNumber,
+    sanitizeInput,
+    validatePasswordStrength,
+    isValidCardNumber,
+    slugify,
+    generateReferenceID,
+    calculateAgeFromDOB
   };
 };
 
