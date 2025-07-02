@@ -59,6 +59,24 @@ var useStringUtils = () => {
     const ageDiff = Date.now() - birthDate.getTime();
     return Math.floor(ageDiff / (1e3 * 60 * 60 * 24 * 365.25));
   };
+  const removeWhitespace = (str) => str.replace(/\s+/g, "");
+  const reverseString = (str) => str.split("").reverse().join("");
+  const truncate = (str, length) => str.length > length ? str.slice(0, length) + "..." : str;
+  const containsOnlyNumbers = (str) => /^\d+$/.test(str);
+  const containsOnlyLetters = (str) => /^[A-Za-z]+$/.test(str);
+  const extractNumbers = (str) => str.match(/\d+/g) || [];
+  const extractEmails = (str) => str.match(/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-z]{2,}/g) || [];
+  const toCamelCase = (str) => str.replace(/[-_\s.]+(.)?/g, (_, c) => c ? c.toUpperCase() : "").replace(/^./, (c) => c.toLowerCase());
+  const toSnakeCase = (str) => str.replace(/\W+/g, " ").split(/ |\B(?=[A-Z])/).join("_").toLowerCase();
+  const countOccurrences = (str, char) => str.split(char).length - 1;
+  const removeDuplicateWords = (str) => {
+    const words = str.split(/\s+/);
+    return [...new Set(words)].join(" ");
+  };
+  const wordCount = (str) => str.trim().split(/\s+/).filter(Boolean).length;
+  const sentenceCase = (str) => str.toLowerCase().replace(/(^\s*\w|[.!?]\s*\w)/g, (c) => c.toUpperCase());
+  const escapeRegExp = (str) => str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const removeNonAlphanumeric = (str) => str.replace(/[^a-zA-Z0-9]/g, "");
   return {
     isEmpty,
     trimString,
@@ -76,7 +94,22 @@ var useStringUtils = () => {
     isValidCardNumber,
     slugify,
     generateReferenceID,
-    calculateAgeFromDOB
+    calculateAgeFromDOB,
+    removeWhitespace,
+    reverseString,
+    truncate,
+    containsOnlyNumbers,
+    containsOnlyLetters,
+    extractNumbers,
+    extractEmails,
+    toCamelCase,
+    toSnakeCase,
+    countOccurrences,
+    removeDuplicateWords,
+    wordCount,
+    sentenceCase,
+    escapeRegExp,
+    removeNonAlphanumeric
   };
 };
 

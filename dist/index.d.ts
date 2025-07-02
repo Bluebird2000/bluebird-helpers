@@ -27,6 +27,21 @@ declare const useStringUtils: () => {
     slugify: (text: string) => string;
     generateReferenceID: (prefix?: string) => string;
     calculateAgeFromDOB: (dob: string) => number;
+    removeWhitespace: (str: string) => string;
+    reverseString: (str: string) => string;
+    truncate: (str: string, length: number) => string;
+    containsOnlyNumbers: (str: string) => boolean;
+    containsOnlyLetters: (str: string) => boolean;
+    extractNumbers: (str: string) => string[];
+    extractEmails: (str: string) => string[];
+    toCamelCase: (str: string) => string;
+    toSnakeCase: (str: string) => string;
+    countOccurrences: (str: string, char: string) => number;
+    removeDuplicateWords: (str: string) => string;
+    wordCount: (str: string) => number;
+    sentenceCase: (str: string) => string;
+    escapeRegExp: (str: string) => string;
+    removeNonAlphanumeric: (str: string) => string;
 };
 
 /**

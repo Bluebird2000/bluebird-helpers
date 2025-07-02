@@ -103,6 +103,55 @@ export const useStringUtils = () => {
     return Math.floor(ageDiff / (1000 * 60 * 60 * 24 * 365.25));
   };
 
+  const removeWhitespace = (str: string): string => str.replace(/\s+/g, "");
+
+  const reverseString = (str: string): string =>
+    str.split("").reverse().join("");
+
+  const truncate = (str: string, length: number): string =>
+    str.length > length ? str.slice(0, length) + "..." : str;
+
+  const containsOnlyNumbers = (str: string): boolean => /^\d+$/.test(str);
+
+  const containsOnlyLetters = (str: string): boolean => /^[A-Za-z]+$/.test(str);
+
+  const extractNumbers = (str: string): string[] => str.match(/\d+/g) || [];
+
+  const extractEmails = (str: string): string[] =>
+    str.match(/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-z]{2,}/g) || [];
+
+  const toCamelCase = (str: string): string =>
+    str
+      .replace(/[-_\s.]+(.)?/g, (_, c) => (c ? c.toUpperCase() : ""))
+      .replace(/^./, (c) => c.toLowerCase());
+
+  const toSnakeCase = (str: string): string =>
+    str
+      .replace(/\W+/g, " ")
+      .split(/ |\B(?=[A-Z])/)
+      .join("_")
+      .toLowerCase();
+
+  const countOccurrences = (str: string, char: string): number =>
+    str.split(char).length - 1;
+
+  const removeDuplicateWords = (str: string): string => {
+    const words = str.split(/\s+/);
+    return [...new Set(words)].join(" ");
+  };
+
+  const wordCount = (str: string): number =>
+    str.trim().split(/\s+/).filter(Boolean).length;
+
+  const sentenceCase = (str: string): string =>
+    str.toLowerCase().replace(/(^\s*\w|[.!?]\s*\w)/g, (c) => c.toUpperCase());
+
+  const escapeRegExp = (str: string): string =>
+    str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+
+  const removeNonAlphanumeric = (str: string): string =>
+    str.replace(/[^a-zA-Z0-9]/g, "");
+
   return {
     isEmpty,
     trimString,
@@ -121,5 +170,20 @@ export const useStringUtils = () => {
     slugify,
     generateReferenceID,
     calculateAgeFromDOB,
+    removeWhitespace,
+    reverseString,
+    truncate,
+    containsOnlyNumbers,
+    containsOnlyLetters,
+    extractNumbers,
+    extractEmails,
+    toCamelCase,
+    toSnakeCase,
+    countOccurrences,
+    removeDuplicateWords,
+    wordCount,
+    sentenceCase,
+    escapeRegExp,
+    removeNonAlphanumeric,
   };
 };
